@@ -96,7 +96,7 @@ function [f, fx, fxx, data] = neglogpost(x, par)
         var  = sum(Woc*(par.docraw(iwet(idoc))-mu).^2)/sum(diag(Woc));
         Woc  = par.docscale*Woc/var ;
         tic 
-        [par, C, Cx, Cxx] = eqCcycle_v2(x, par) ;
+        [par, C, Cx, Cxx] = eqCcycle(x, par) ;
         DIC  = M3d+nan ;  DIC(iwet)  = C(0*nwet+1:1*nwet) ;
         POC  = M3d+nan ;  POC(iwet)  = C(1*nwet+1:2*nwet) ;
         DOC  = M3d+nan ;  DOC(iwet)  = C(2*nwet+1:3*nwet) ;
